@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>التصميم والبرمجة</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        background-image: url(thumbnailimages/background.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      /*
+      #backGroVid{
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: #50e155;
+        
+      }*/
+      #backGroVid{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*
+        min-height: 100%;
+        min-width: 100%;
+        margin-left: auto;
+        margin-right: auto;*/
+      }
+      #myVideo{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        /* min error */
+        
+        object-fit: cover;
+        z-index: -1;
+        display: flex;
+        /*
+        justify-content: center;
+        background-color: #800563;*/
+      }
+      
+      #svgCon{
+        position: relative;
+        margin-bottom: 100px;
+        z-index: 1000;
+        /*
+        background-color: violet;
+        background-color: red;
+        transform: translate(-50px,-80px);*/
+      }
+      #svgCon img{
+        position: sticky;
+        
+        width: 50%;
+        height: 100%;
+      }
+      /* Style the navigation bar */
+      nav {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        background-color: white;
+        /*
+        overflow: visible; 
+        float: right;
+        top: 90px;
+        what if i give a margin*/
+        width: 40%;
+        top: 10%;
+        right: 10%;
+        position:absolute;
+        z-index: 1000;
+        border-radius: 5px;
+      }
+      
+      /* Style the links inside the navigation bar */
+      nav a {
+        color: #a8510b;
+        text-align: center;
+        font-size: 50px;
+        padding-right: 14px ;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+        /*margin-right: 50px;*/
+        display: flex;
+      }
+      a{
+        text-decoration: none;
+        color: #a8510b;
+      }
+      /* Change the color of links on hover */
+      nav a:hover {
+        color: #01D154;
+        /*color: aqua;*/
+        text-decoration: underline;
+      }
+      
+      /* Style the active link 
+      .active {
+        background-color: #4CAF50;
+        color: white;
+      }
+      */
+      /* Style the paragraphs */
+      p {
+        margin-top: 50px;
+      }
+      #homeBody{
+        /*
+        background-color: #4CAF50;
+        width: 50%;
+        display: block;*/
+        height: 100%;
+      }/*
+      #displayer{
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+      }*/
+      .svgcontainer{
+            width: 100%;
+            height : 300px;
+    
+            position: relative;
+            display: flex;
+           
+            justify-content: center;
+            
+        }
+        /*
+      .box{
+            height: 450px;
+            width: 200px;
+            background-color: blue;
+            margin: 30px;
+        }*/
+      #designDisplayer{
+        width: 100%;
+        height: 100%;
+        /*display: flex;*/
+        display: none;
+        justify-content: center;
+        align-items: center;
+        /*background-color: red;*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        flex-wrap: wrap;
+        
+      }
+      #designDisplayer a h4{
+        text-decoration: underline;
+        color: #50e155;
+        padding: 10px;
+      }
+      #designDisplayer a h4:hover{
+        background-color: #2E0580;
+      }
+      #designDisplayer2{
+        width: 100%;
+        height: 100%;/* 400px */
+        display: none;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(0, 149, 255);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+      }
+      #designDisplayer2 a h4{
+        text-decoration: underline;
+        color: #50e155;
+        padding: 10px;
+      }
+      #designDisplayer2 a h4:hover{
+        background-color: #2E0580;
+      }
+      #designDisplayer3{
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+       /* background-color: rgb(8, 0, 255);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+      }
+      #designDisplayer3 a h4{
+        text-decoration: underline;
+        color: #50e155;
+        padding: 10px;
+      }
+      #designDisplayer3 a h4:hover{
+        background-color: #2E0580;
+      }
+      #designDisplayer4{
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(0, 255, 17);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+      }
+      #designDisplayer4 a h4{
+        text-decoration: underline;
+        color: #50e155;
+        padding: 10px;
+      }
+      #designDisplayer4 a h4:hover{
+        background-color: #2E0580;
+      }
+      #designDisplayer5{
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(225, 255, 0);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+      }
+      #designDisplayer5 a h4{
+        text-decoration: underline;
+        color: #50e155;
+        padding: 10px;
+      }
+      #designDisplayer5 a h4:hover{
+        background-color: #2E0580;
+      }
+      #webDisplayer{
+        width: 100%;
+        height: 400px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+       /* background-color: rgb(225, 255, 0);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #webDisplayer2{
+        width: 100%;
+        height: 400px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+       /* background-color: rgb(255, 140, 0);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #webDisplayer3{
+        width: 100%;
+        height: 400px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+       /* background-color: rgb(255, 0, 238);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #webDisplayer4{
+        width: 100%;
+        height: 400px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        /*background-color: rgb(157, 0, 255);*/
+        z-index: 3000;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #myCanvas{
+        
+        z-index: 1000;
+        display: flex;
+        float: right;
+        /*
+        padding: 100px 20px;
+        margin-right: 0px;
+        display: flex;
+        float: right;
+        background-color: palevioletred;*/
+      }
+      #myCanvas2{
+        z-index: 1000;
+        display: flex;
+        float: right;
+      }
+      ul{
+        padding: 100px 40px;
+        /*margin-top: 100px;*/
+        display: block;
+        direction: rtl;
+        /*list-style-type: none; */
+        flex-direction: row-reverse;
+        list-style-type: square;
+        
+      }
+      ul h2{
+        padding: 20px;
+        color: #a8510b;
+        font-weight: bolder;
+      }
+      ul li{
+        font-size: 20px;
+        padding: 10px;
+        font-weight: 900;
+       /* display: flex;*/
+        width: 70%;
+        /*
+        background-color: #4CAF50;
+        width: 100%;*/
+      }
+      ul li:hover{
+        /*background-color: #2E0580;*/
+        color: aqua;
+        text-decoration: underline;
+        
+        cursor: pointer;
+      }
+      /*
+      #myCanvas2{
+        z-index: 2000;
+        display: flex;
+        
+      }
+      */
+      footer{
+          height: 100px;
+          width: 100%;
+          position: relative;
+          background-color: #a8510b;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        footer h3{
+          color: white;
+        }
+      @media only screen and (max-width: 1200px){
+        nav a{
+          font-size: 40px;
+         
+        }
+      }
+      @media only screen and (max-width: 1000px){
+        nav a{
+          font-size: 30px;
+          
+        }
+      }
+      @media only screen and (max-width: 850px){
+        nav a{
+          font-size: 20px;
+          
+        }
+      }
+      
+      @media only screen and (max-width: 700px){
+        body{
+          /*background-color: palevioletred;*/
+        }
+        #homeBody{
+         /* background-color: pink; to make responsive list reminder*/
+        }
+        nav a{
+          font-size: 20px;
+          padding-right: 0 ;
+          /*margin-right: 30px;*/
+        }
+        nav{
+            /*
+          top:0;
+          right: 0;*/
+          width: 50%;
+        }
+        #svgCon{
+          margin-bottom: 50px;
+        }
+      }
+      @media only screen and (min-width: 1250px){
+        #homeBody{
+          /*background-color: #4CAF50;*/
+        }
+        #displayer{
+        width: 800px;
+        height: 500px;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="backGroVid"> -->
+    <!-- Navigation bar -->
+    <div id="svgCon">
+        <div id="backGroVid">
+            <video autoplay muted loop id="myVideo">
+              <source src="videos/technology_Gbe5lXx4.mp4" type="video/mp4">
+              <source src="movie.ogg" type="video/ogg">
+              
+            </video>
+            
+          </div>   
+      <img src="Group 50.png" alt=""> 
+      <nav>
+        <a href="contact me.html" style="margin-right: 30px;">اتصل بنا</a>
+        <a href="index.html">  التصميم والبرمجة</a>
+        
+      </nav>
+      
+    </div>
+    
+    
+    <!-- Paragraphs -->
+    <!--
+    <p id="section1">This is the first section.</p>
+    <p id="section2">This is the second section.</p>
+    <p id="section3">This is the third section.</p>
+    -->
+    <div style="display:flex;position: relative;flex-wrap: wrap;justify-content: center;width: 100%;">
+    <div id="homeBody" >
+      <!--<div style="display:flex;float:right;"></div>-->
+      <canvas id="myCanvas" width="250" height="60" ></canvas>
+     <!-- <div  id="displayer">
+
+      </div>-->
+      <ul>
+        <h2> التصميم باستخدام photoshop + adobe xd + adobe illustrator </h2>
+        <a   onclick="myFunction()" id="embeddedSys" ><li>تطبيق الانظمة المعقدة</li></a>
+        <div id="designDisplayer">
+          <div class="svgcontainer">
+          
+            <img src="myCV/coverEM.png" alt="">
+            
+        </div>
+        <a href="https://www.behance.net/fatimahadam">
+          <h4>لمشاهدة المزيد</h4>
+        </a>
+        
+        </div>
+        <a   onclick="myFunction2()" id="dietMob"><li>تطبيق الدايت للموبايل</li></a>
+        <div id="designDisplayer2">
+          <div class="svgcontainer">
+          
+            <img src="thumbnailimages/dietSalad.png" alt="">
+            
+        </div>
+        <a href="https://www.behance.net/fatimahadam">
+          <h4>لمشاهدة المزيد</h4>
+        </a>
+        </div>
+        <a  onclick="myFunction3()" id="dietDesk"><li>تطبيق الدايت للديسكتوب</li></a>
+        <div id="designDisplayer3">
+          <div class="svgcontainer">
+          
+            <img src="thumbnailimages/dietD.png" alt="">
+            
+        </div>
+        <a href="https://www.behance.net/fatimahadam">
+          <h4>لمشاهدة المزيد</h4>
+        </a>
+        </div>
+        <a   onclick="myFunction4()" id="treeApp"><li>تطبيق التشجير </li></a>
+        <div id="designDisplayer4">
+          <div class="svgcontainer">
+          
+            <img src="thumbnailimages/treeCover.png" alt="">
+            
+        </div>
+        <a href="https://www.behance.net/fatimahadam">
+          <h4>لمشاهدة المزيد</h4>
+        </a>
+        </div>
+        <a   onclick="myFunction5()" id="socialMediaDes"><li>تصاميم السوشال ميديا</li></a>
+        <div id="designDisplayer5">
+          <div class="svgcontainer">
+          
+            <img src="thumbnailimages/designCV2.png" alt="">
+            
+        </div>
+        <a href="https://www.behance.net/fatimahadam">
+          <h4>لمشاهدة المزيد</h4>
+        </a>
+        </div>
+      </ul>
+      <!--
+        camael eye method
+      <div id="designDisplayer">
+
+      </div>-->
+    </div>
+    <div style="position: relative;">
+      <canvas id="myCanvas2" width="250" height="60" ></canvas>
+     <!-- <div  id="displayer">
+
+      </div>-->
+      <ul>
+        <h2>البرمجة باستخدام html + css + javascript + php  </h2>
+        <h2>و كذلك القوالب الجاهزة bootstrap + wordpress</h2>
+        <a   onclick="myFunction6()" id="gameSite" ><li>موقع العاب  </li></a>
+        <div id="webDisplayer">
+            <video width="100%" height="100%" controls>
+                <source src="videos/xbox.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+              </video>
+        </div>
+        <a   onclick="myFunction7()" id="dropdownList"><li>القوائم المنسدلة </li></a>
+        <div id="webDisplayer2">
+          <video width="100%" height="100%" controls>
+            <source src="videos/dropdown.mkv" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+        <a  onclick="myFunction8()" id="cvDesign"><li> تصميم سيرة ذاتية </li></a>
+        <div id="webDisplayer3">
+          <video width="100%" height="100%" controls>
+            <source src="videos/cv.mkv" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+        <a   onclick="myFunction9()" id="mathJS"><li> تطبيق رياضيات باستخدام javascript </li></a>
+        <div id="webDisplayer4">
+          <video width="100%" height="100%" controls>
+            <source src="videos/mathJS.mkv" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+        
+      </ul>
+    </div>
+    
+    
+  </div>
+  </div>
+    
+      <!--<canvas id="myCanvas2" width="250" height="100"></canvas>-->
+   <!-- </div> -->
+  </div>
+  <div style="background-color: rgb(7, 168, 168);"></div>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");//3d
+      ctx.beginPath();
+      ctx.moveTo(50, 0);
+      ctx.lineTo(250, 0);
+      ctx.lineTo(200, 50);
+      ctx.lineTo(0, 50);
+      ctx.closePath();//closed graphتوضيحي draw
+      ctx.fillStyle="#a8510b";
+      ctx.fill();
+      //var canvas2 = document.getElementById("myCanvas2"); error same canvas can use for dofferent design
+      var canvas2 = document.getElementById("myCanvas");
+      var ctx2 = canvas2.getContext("2d");
+      
+      ctx2.font = "30px Arial";
+      ctx2.fillStyle ="#2E0580";
+      
+      ctx2.fillText ("التصميم",100, canvas.height/2);
+      //canvas2
+      var canvas2 = document.getElementById("myCanvas2");
+      var ctx3 = canvas2.getContext("2d");//3d
+      ctx3.beginPath();
+      ctx3.moveTo(50, 0);
+      ctx3.lineTo(250, 0);
+      ctx3.lineTo(200, 50);
+      ctx3.lineTo(0, 50);
+      ctx3.closePath();//closed graphتوضيحي draw
+      ctx3.fillStyle="#a8510b";
+      ctx3.fill();
+      //var canvas2 = document.getElementById("myCanvas2"); error same canvas can use for dofferent design
+      var canvas2 = document.getElementById("myCanvas2");
+      var ctx4 = canvas2.getContext("2d");
+      
+      ctx4.font = "30px Arial";
+      ctx4.fillStyle ="#2E0580";
+      
+      ctx4.fillText ("البرمجة",100, canvas.height/2);
+
+      //functions sections
+      function myFunction(){
+        document.getElementById("designDisplayer").style.display = "flex";
+        document.getElementById("embeddedSys").style.color = "#01D154";
+      }
+      function myFunction2(){
+        document.getElementById("designDisplayer2").style.display = "flex";
+        document.getElementById("dietMob").style.color = "#01D154";
+      }
+      function myFunction3(){
+        document.getElementById("designDisplayer3").style.display = "flex";
+        document.getElementById("dietDesk").style.color = "#01D154";
+      }
+      function myFunction4(){
+        document.getElementById("designDisplayer4").style.display = "flex";
+        document.getElementById("treeApp").style.color = "#01D154";
+      }
+      function myFunction5(){
+        document.getElementById("designDisplayer5").style.display = "flex";
+        document.getElementById("socialMediaDes").style.color = "#01D154";
+      }
+      function myFunction6(){
+        document.getElementById("webDisplayer").style.display = "flex";
+        document.getElementById("gameSite").style.color = "#01D154";
+      }
+      function myFunction7(){
+        document.getElementById("webDisplayer2").style.display = "flex";
+        document.getElementById("dropdownList").style.color = "#01D154";
+      }
+      function myFunction8(){
+        document.getElementById("webDisplayer3").style.display = "flex";
+        document.getElementById("cvDesign").style.color = "#01D154";
+      }
+      function myFunction9(){
+        document.getElementById("webDisplayer4").style.display = "flex";
+        document.getElementById("mathJS").style.color = "#01D154";
+      }
+    </script>
+  </body>
+  <footer>
+    <h3> &copy;All rights reserved</h3>
+    <!-- all right rserved -->
+  </footer>
+</html>
